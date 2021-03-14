@@ -1,10 +1,9 @@
-package testscripts.UI.FindPage;
+package testscripts.UI;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import testscripts.BaseTest;
 
-public class Find_001 extends BaseTest {
+public class Find001 extends BaseTest {
     @Test
     public void verifyFindPageDisplayCorrectly(){
         verifyInFindPage();

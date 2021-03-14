@@ -1,15 +1,14 @@
-package testscripts;
+package testscripts.UI;
 
 import data.OpenweathermapData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import pageobject.FindPage;
 import pageobject.HomePage;
-
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -18,25 +17,22 @@ public class BaseTest {
     protected static FindPage findPage;
     protected static OpenweathermapData openweathermapData;
 
-    @BeforeMethod
-    public void setUpMethod() {
+    public void setUpClass() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         homePage = PageFactory.initElements(driver, HomePage.class);
-        driver.get(openweathermapData.URL);
+        driver.get(OpenweathermapData.URL);
         driver.manage().window().maximize();
         verifyHomePageWithSearchBoxInTopBar();
     }
 
     public void verifyHomePageWithSearchBoxInTopBar(){
-        Assert.assertEquals(driver.getTitle(), openweathermapData.HOME_PAGE_TITLE);
+        Assert.assertEquals(driver.getTitle(), OpenweathermapData.HOME_PAGE_TITLE);
         Assert.assertEquals(homePage.navSearchForm.getAttribute("placeholder"),
-                openweathermapData.SEARCH_BOX_PLACEHOLDER);
-        System.out.println("This is the Home Page");
+                OpenweathermapData.SEARCH_BOX_PLACEHOLDER);
     }
 
-    @AfterMethod
-    public void tearDownMethod() {
+    public void tearDownClass() {
         driver.quit();
     }
 }

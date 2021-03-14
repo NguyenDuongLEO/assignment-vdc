@@ -7,16 +7,12 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 public class FindPage {
-
-    WebDriver driver = DriverFactory.getDriver();
-
-    //===Find Page===
-    @FindBy(xpath = "//h2[contains(text(),'Weather in your city')]")
-    public WebElement headlineInFindPage;
-
-
-
+    WebDriver driver;
     public FindPage(WebDriver driver){
         this.driver = driver;
     }
+
+    @FindBy(xpath = "//h2[contains(text(),'Weather in your city')]")
+    public WebElement headlineInFindPage;
+
 }
