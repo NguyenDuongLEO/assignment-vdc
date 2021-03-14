@@ -14,10 +14,11 @@ public class HomePage {
 
     @FindBy(xpath = "//*[@id='q']")
     public WebElement navSearchForm;
+
     @FindBy(css = "form[id$='nav-search-form']")
     public WebElement navSearchIcon;
 
-    public void verifyNavigatedToFindPage(String FindPageTitle){
-        Assert.assertEquals(driver.getTitle(), FindPageTitle);
-    }
+    @FindBy(xpath = "//span[contains(text(), 'OpenWeather')]")
+    public WebElement headlineInFindPage;
+
 }

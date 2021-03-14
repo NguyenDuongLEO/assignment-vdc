@@ -15,4 +15,12 @@ public class FindPage {
     @FindBy(xpath = "//h2[contains(text(),'Weather in your city')]")
     public WebElement headlineInFindPage;
 
+    @FindBy(css = "[id$='search_str']")
+    public WebElement searchboxInForm;
+
+    @FindBy(css = "form[id$='searchform'] > button[type$='submit'] > i")
+    public WebElement searchButtonInForm;
+
+    @FindBy(css = "form[id$='searchform'] > button[type$='submit'] > i")
+    public WebElement forecastList;
 }
