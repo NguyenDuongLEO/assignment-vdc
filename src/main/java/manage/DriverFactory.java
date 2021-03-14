@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DriverFactory {
-    private static Map<String, WebDriver> driverMapping = new HashMap<String, WebDriver>();
+    private static final Map<String, WebDriver> driverMapping = new HashMap<String, WebDriver>();
 
     public static WebDriver getDriver() {
         return driverMapping.get(Thread.currentThread().getName());
@@ -19,7 +19,6 @@ public class DriverFactory {
 
     public static WebDriver getDriverInstance() {
         System.getProperty("user.dir");
-
         return new ChromeDriver();
     }
 }
