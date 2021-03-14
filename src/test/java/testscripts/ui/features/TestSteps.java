@@ -1,4 +1,4 @@
-package testscripts.UI.features;
+package testscripts.ui.features;
 
 import data.OpenweathermapData;
 import io.cucumber.java.After;
@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -14,8 +15,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import pageobject.FindPage;
 import pageobject.HomePage;
-import testscripts.UI.BaseTest;
+import testscripts.ui.BaseTest;
 import java.util.concurrent.TimeUnit;
+
+import static util.AssertUtil.AssertEqualsCustomize;
 import static util.HandleElements.WaitAndSendKey;
 
 public class TestSteps extends BaseTest {
@@ -61,19 +64,33 @@ public class TestSteps extends BaseTest {
     }
 
     @Then("^find page is displayed with correct page title$")
-    public void find_page_is_displayed() throws Throwable {
-        Assert.assertEquals(driver.getTitle(), OpenweathermapData.FIND_PAGE_TITLE);
+    public void find_page_is_displayed_with_correct_page_title() throws Throwable {
+        AssertEqualsCustomize(driver.getTitle(), OpenweathermapData.FIND_PAGE_TITLE);
     }
 
     @And("^find page header as Weather in your city is displayed$")
     public void find_page_header_is_displayed() throws Throwable {
-        Assert.assertEquals(findPage.headlineInFindPage.getText(), OpenweathermapData.HEADLINE_WEATHER_IN_YOUR_CITY);
+        AssertEqualsCustomize(findPage.headlineInFindPage.getText(), OpenweathermapData.HEADLINE_WEATHER_IN_YOUR_CITY);
     }
 
     @And("^search form is displayed with the previous city entered$")
     public void search_form_is_displayed_with_previous_city_entered() throws Throwable {
-        Assert.assertEquals(findPage.searchboxInForm.getAttribute("value"), getCity());
-        Assert.assertEquals(findPage.searchButtonInForm.getText(), OpenweathermapData.SEARCH_BUTTON_TEXT);
+
+        AssertEqualsCustomize(findPage.searchboxInForm.getAttribute("value"), getCity());
+        AssertEqualsCustomize(findPage.searchButtonInForm.getText(), OpenweathermapData.SEARCH_BUTTON_TEXT);
     }
 
+    @And("^forecast list is displayed$")
+    public void forecast_list_is_displayed() throws Throwable {
+        Assert.assertNotNull(findPage.forecastList);
+    }
+
+    @And("^forecast list is NOT displayed$")
+    public void forecast_list_is_not_displayed() throws Throwable {
+        if(driver.findElements(By.xpath("//*[@id='forecast_list_ul']//a")).isEmpty()){
+            Assert.assertTrue(true);
+        }else{
+            Assert.assertTrue(false);
+        }
+    }
 }

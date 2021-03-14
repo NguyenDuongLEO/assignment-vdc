@@ -1,6 +1,5 @@
-package testscripts.UI;
+package testscripts.ui;
 
-import data.OpenweathermapData;
 import org.openqa.selenium.WebDriver;
 import pageobject.FindPage;
 import pageobject.HomePage;
