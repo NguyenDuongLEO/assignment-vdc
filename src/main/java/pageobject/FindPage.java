@@ -18,9 +18,9 @@ public class FindPage {
     @FindBy(css = "[id$='search_str']")
     public WebElement searchboxInForm;
 
-    @FindBy(css = "form[id$='searchform'] > button[type$='submit'] > i")
+    @FindBy(css = "form[id$='searchform'] > button[type$='submit']")
     public WebElement searchButtonInForm;
 
-    @FindBy(css = "form[id$='searchform'] > button[type$='submit'] > i")
+    @FindBy(xpath = "//*[@id='forecast_list_ul']//a")
     public WebElement forecastList;
 }

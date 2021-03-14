@@ -8,10 +8,13 @@ Feature: Search Weather Feature
     Then find page is displayed with correct page title
     And find page header as Weather in your city is displayed
     And search form is displayed with the previous city entered
+    And forecast list is displayed
 
-
-  Scenario: Search valid city and submit using enter on keyboard
+  Scenario: Search invalid city and select Enter on keyboard to search
     Given user is on homepage
-    When user selects weather search box
-    And user enters "ho chi minh" city and submit using enter on keyboard
-    Then find page is displayed
+    When user enters @ city in the navigation search box
+    And user selects enter on keyboard to search
+    Then find page is displayed with correct page title
+    And find page header as Weather in your city is displayed
+    And search form is displayed with the previous city entered
+    And forecast list is NOT displayed
