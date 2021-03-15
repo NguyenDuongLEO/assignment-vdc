@@ -7,4 +7,5 @@ public class OpenweathermapData {
     public static final String SEARCH_BOX_PLACEHOLDER = "Weather in your city";
     public static final String HEADLINE_WEATHER_IN_YOUR_CITY = "Weather in your city";
     public static final String SEARCH_BUTTON_TEXT = "Search";
+    public static final String SEARCH_RESULT_HO_CHI_MINH = "Thanh pho Ho Chi Minh";
 }

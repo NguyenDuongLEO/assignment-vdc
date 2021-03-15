@@ -1,13 +1,11 @@
 package pageobject;
 
-import manage.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class HomePage {
-    WebDriver driver;
+    final WebDriver driver;
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
