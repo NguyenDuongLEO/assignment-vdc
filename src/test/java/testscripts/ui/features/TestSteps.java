@@ -24,6 +24,7 @@ import static util.HandleElements.WaitAndSendKey;
 public class TestSteps extends BaseTest {
     @Before
     public void setUpClass(){
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         homePage = PageFactory.initElements(driver, HomePage.class);
