@@ -7,7 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/testscripts/api/featuresApi/TestApiFeatures.feature"
-        ,glue= {"testscripts/api"}
+        ,glue= {"testscripts/api"},
+        plugin = { "pretty", "html:target/cucumber-reports.html" },
+        monochrome = true
 )
 
 public class TestApiRunner {

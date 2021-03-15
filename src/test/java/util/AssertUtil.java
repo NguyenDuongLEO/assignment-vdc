@@ -1,7 +1,7 @@
 package util;
 
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.junit.Assert;
 
 public class AssertUtil {
     public static void AssertEqualsCustomize(String actualResult, String expectedResult){

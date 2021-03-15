@@ -12,7 +12,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+import org.junit.Assert;
 import pageobject.FindPage;
 import pageobject.HomePage;
 import testscripts.ui.BaseTest;
@@ -65,12 +65,14 @@ public class TestSteps extends BaseTest {
 
     @Then("^find page is displayed with correct page title$")
     public void find_page_is_displayed_with_correct_page_title() throws Throwable {
-        AssertEqualsCustomize(driver.getTitle(), OpenweathermapData.FIND_PAGE_TITLE);
+        Assert.assertEquals(driver.getTitle(), OpenweathermapData.FIND_PAGE_TITLE, "Page Title is matching");
+//        AssertEqualsCustomize(driver.getTitle(), OpenweathermapData.FIND_PAGE_TITLE);
     }
 
     @And("^find page header as Weather in your city is displayed$")
     public void find_page_header_is_displayed() throws Throwable {
-        AssertEqualsCustomize(findPage.headlineInFindPage.getText(), OpenweathermapData.HEADLINE_WEATHER_IN_YOUR_CITY);
+        Assert.assertEquals(findPage.headlineInFindPage.getText(), OpenweathermapData.HEADLINE_WEATHER_IN_YOUR_CITY, "Headline is matching");
+//        AssertEqualsCustomize(findPage.headlineInFindPage.getText(), OpenweathermapData.HEADLINE_WEATHER_IN_YOUR_CITY);
     }
 
     @And("^search form is displayed with the previous city entered$")
