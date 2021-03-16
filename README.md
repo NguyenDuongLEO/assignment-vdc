@@ -5,7 +5,7 @@
 - [Test case](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/Testing%20Document/Assignment_TestCases.xlsx)
 - [Testing Approach](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/Testing%20Document/Testing%20Approach.docx)
 - [API collection](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/Testing%20Document/Openweathermap%20-%20API%20Search%20Weather%20in%20your%20city.postman_collection.json)
-- [Status code check result](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/Testing%20Document/Testing%20Approach.docx)
+- [Status code check result](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/static-code-check-result.html)
 
 ##Resource need to be installed
 - Maven
