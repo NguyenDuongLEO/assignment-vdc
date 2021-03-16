@@ -19,8 +19,8 @@ How to execute the test scripts?
 2. Right click on the "pom.xml" and select "Maven > Reimport".
 3. Wait until all dependencies are imported.
 4. Run API test: 
-	- Run file **src\test\java\testscripts\api\TestApiRunner.java**
-	- View the report by opening file **target\cucumber-reports.html** using Web Browser
+	- Run file **src\test\java\scripts\api\TestApiRunner.java**
+	- View the report by opening file **target\cucumber-api-reports.html** using Web Browser
 5. Run UI test:
-	- Run file **src\test\java\testscripts\api\TestRunner.java**
+	- Run file **src\test\java\scripts\api\TestRunner.java**
 	- View the report by opening file **target\cucumber-reports.html** using Web Browser

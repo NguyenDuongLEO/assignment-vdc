@@ -1,6 +1,6 @@
-package testscripts.ui.features;
+package scripts.ui.features;
 
-import data.OpenweathermapData;
+import data.OpenWeatherMapData;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -15,21 +15,19 @@ import org.openqa.selenium.support.PageFactory;
 import org.junit.Assert;
 import pageobject.FindPage;
 import pageobject.HomePage;
-import testscripts.ui.BaseTest;
+import scripts.ui.BaseTest;
 import java.util.concurrent.TimeUnit;
-
-import static util.AssertUtil.AssertEqualsCustomize;
 import static util.HandleElements.WaitAndSendKey;
 
 public class TestSteps extends BaseTest {
     @Before
     public void setUpClass(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         homePage = PageFactory.initElements(driver, HomePage.class);
         findPage = PageFactory.initElements(driver, FindPage.class);
-        driver.get(OpenweathermapData.URL);
+        driver.get(OpenWeatherMapData.URL);
         driver.manage().window().maximize();
     }
 
@@ -48,52 +46,50 @@ public class TestSteps extends BaseTest {
     }
 
     @Given("^user is on homepage$")
-    public void user_is_on_homepage() throws Throwable {
-
+    public void user_is_on_homepage(){
+        Assert.assertEquals("Page Title is matching", OpenWeatherMapData.HOME_PAGE_TITLE, driver.getTitle());
     }
 
     @When("^user enters (.*) city in the navigation search box$")
-    public void user_enters_valid_city_in_the_navigation_search_box(String city) throws Throwable {
+    public void user_enters_valid_city_in_the_navigation_search_box(String city){
         WaitAndSendKey(driver, homePage.navSearchForm, city);
         setCity(city);
     }
 
     @And("^user selects enter on keyboard to search$")
-    public void user_selects_enter_on_keyboard_to_search() throws Throwable {
+    public void user_selects_enter_on_keyboard_to_search(){
         Actions actions = new Actions(driver);
         actions.moveToElement(homePage.navSearchForm).sendKeys(Keys.ENTER).build().perform();
     }
 
     @Then("^find page is displayed with correct page title$")
-    public void find_page_is_displayed_with_correct_page_title() throws Throwable {
-        Assert.assertEquals(driver.getTitle(), OpenweathermapData.FIND_PAGE_TITLE, "Page Title is matching");
-//        AssertEqualsCustomize(driver.getTitle(), OpenweathermapData.FIND_PAGE_TITLE);
+    public void find_page_is_displayed_with_correct_page_title(){
+        Assert.assertEquals("Page Title is matching", OpenWeatherMapData.FIND_PAGE_TITLE, driver.getTitle());
     }
 
     @And("^find page header as Weather in your city is displayed$")
-    public void find_page_header_is_displayed() throws Throwable {
-        Assert.assertEquals(findPage.headlineInFindPage.getText(), OpenweathermapData.HEADLINE_WEATHER_IN_YOUR_CITY, "Headline is matching");
-//        AssertEqualsCustomize(findPage.headlineInFindPage.getText(), OpenweathermapData.HEADLINE_WEATHER_IN_YOUR_CITY);
+    public void find_page_header_is_displayed() {
+        Assert.assertEquals("Headline is matching", OpenWeatherMapData.HEADLINE_WEATHER_IN_YOUR_CITY, findPage.headlineInFindPage.getText());
     }
 
     @And("^search form is displayed with the previous city entered$")
-    public void search_form_is_displayed_with_previous_city_entered() throws Throwable {
+    public void search_form_is_displayed_with_previous_city_entered(){
 
-        AssertEqualsCustomize(findPage.searchboxInForm.getAttribute("value"), getCity());
-        AssertEqualsCustomize(findPage.searchButtonInForm.getText(), OpenweathermapData.SEARCH_BUTTON_TEXT);
+        Assert.assertEquals("City is matching", getCity(), findPage.searchboxInForm.getAttribute("value"));
+        Assert.assertEquals("Search button is matching", OpenWeatherMapData.SEARCH_BUTTON_TEXT, findPage.searchButtonInForm.getText());
     }
 
     @And("^forecast list is displayed$")
-    public void forecast_list_is_displayed() throws Throwable {
+    public void forecast_list_is_displayed(){
         Assert.assertNotNull(findPage.forecastList);
     }
 
     @And("^forecast list is NOT displayed$")
-    public void forecast_list_is_not_displayed() throws Throwable {
+    public void forecast_list_is_not_displayed(){
         if(driver.findElements(By.xpath("//*[@id='forecast_list_ul']//a")).isEmpty()){
             Assert.assertTrue(true);
         }else{
-            Assert.assertTrue(false);
+            Assert.fail();
         }
     }
 }
