@@ -1,9 +1,5 @@
 package scripts.api.featuresApi;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import org.json.JSONObject;
 import data.OpenWeatherMapData;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -87,10 +83,9 @@ public class TestStepsApi extends BaseTest{
     }
 
     @And("^response body is exactly the same as below:$")
-    public void response_body_is_exactly_the_same_as_below(Object responseBody) throws JsonProcessingException {
-        Assert.assertEquals("The code result is matching",
-                OpenWeatherMapData.API_RESPONSE_BODY_CODE_400,
-                getResponseCode());
+    public void response_body_is_exactly_the_same_as_below(Object responseBody) {
+        int apiResponseBodyCode = OpenWeatherMapData.API_RESPONSE_BODY_CODE_400;
+        Assert.assertEquals(apiResponseBodyCode, getResponseCode());
         Assert.assertEquals("The response body is matching",
                 responseBody,
                 getBodyAsJSONObject(getResponseBody()));

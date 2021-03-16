@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class FindPage {
-    WebDriver driver;
+    final WebDriver driver;
     public FindPage(WebDriver driver){
         this.driver = driver;
     }
@@ -14,7 +14,7 @@ public class FindPage {
     public WebElement headlineInFindPage;
 
     @FindBy(css = "[id$='search_str']")
-    public WebElement searchboxInForm;
+    public WebElement searchBoxInForm;
 
     @FindBy(css = "form[id$='searchform'] > button[type$='submit']")
     public WebElement searchButtonInForm;

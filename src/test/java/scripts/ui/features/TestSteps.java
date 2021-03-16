@@ -74,8 +74,7 @@ public class TestSteps extends BaseTest {
 
     @And("^search form is displayed with the previous city entered$")
     public void search_form_is_displayed_with_previous_city_entered(){
-
-        Assert.assertEquals("City is matching", getCity(), findPage.searchboxInForm.getAttribute("value"));
+        Assert.assertEquals("City is matching", getCity(), findPage.searchBoxInForm.getAttribute("value"));
         Assert.assertEquals("Search button is matching", OpenWeatherMapData.SEARCH_BUTTON_TEXT, findPage.searchButtonInForm.getText());
     }
 
