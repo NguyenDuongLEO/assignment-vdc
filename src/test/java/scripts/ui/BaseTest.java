@@ -1,4 +1,4 @@
-package testscripts.ui;
+package scripts.ui;
 
 import org.openqa.selenium.WebDriver;
 import pageobject.FindPage;

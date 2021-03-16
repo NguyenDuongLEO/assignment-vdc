@@ -1,9 +1,10 @@
-#assignment-vdc
-(QA Development Technical Assignment)
+#QA Development Technical Assignment
 
-The Application Under Test
-- https://openweathermap.org/
-- Test case, Testing Approach, API collection: please refer to the **Testing Document** directory
+##The Application Under Test - [AUT](https://openweathermap.org/)
+- Feature: Search weather in your city
+- [Test case](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/Testing%20Document/Assignment_TestCases.xlsx)
+- [Testing Approach](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/Testing%20Document/Testing%20Approach.docx)
+- [API collection](https://github.com/NguyenDuongLEO/assignment-vdc/blob/master/Testing%20Document/Openweathermap%20-%20API%20Search%20Weather%20in%20your%20city.postman_collection.json)
 
 ##Resource need to be installed
 - Maven
@@ -12,15 +13,22 @@ The Application Under Test
 - Cucumber
 - API Rest Assured
 - Selenium
+- Git
 - Google Chrome web browsers
 
-How to execute the test scripts?
-1. Clone the repository (https://github.com/NguyenDuongLEO/assignment-vdc).
-2. Right click on the "pom.xml" and select "Maven > Reimport".
+##Installation
+Use the git command to clone the repository **assignment-vdc**
+```bash
+git clone https://github.com/NguyenDuongLEO/assignment-vdc
+```
+
+##How to execute the test scripts?
+1. Open the IntelliJ IDEA app and open the project **assignment-vdc**
+2. Right click on the file **pom.xml** and select **Maven** and then **Reimport**.
 3. Wait until all dependencies are imported.
 4. Run API test: 
-	- Run file **src\test\java\testscripts\api\TestApiRunner.java**
-	- View the report by opening file **target\cucumber-reports.html** using Web Browser
+	- Right click on the file **src\test\java\scripts\api\TestApiRunner.java** and select **Run 'TestApiRunner'**
+	- To view the report, right click on the file **target\cucumber-api-reports.html** and select **Open in browser** and then **Chrome**
 5. Run UI test:
-	- Run file **src\test\java\testscripts\api\TestRunner.java**
-	- View the report by opening file **target\cucumber-reports.html** using Web Browser
+	- Right click on the file **src\test\java\scripts\api\TestRunner.java** and select **Run 'TestRunner'**
+	- To view the report, right click on the file **target\cucumber-reports.html** and select **Open in browser** and then **Chrome**

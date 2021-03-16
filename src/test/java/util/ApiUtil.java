@@ -1,7 +1,6 @@
 package util;
 
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import org.json.JSONObject;
 
 public class ApiUtil {
